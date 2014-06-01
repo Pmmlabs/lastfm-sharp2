@@ -24,6 +24,28 @@ namespace Lastfm
 {
 	internal class RequestParameters : SortedDictionary<string, string>
 	{
+        internal RequestParameters(string serialization)
+            : base()
+        {
+            string[] values = serialization.Split('\t');
+
+            for (int i = 0; i < values.Length - 1; i++)
+            {
+                if ((i % 2) == 0)
+                    this[values[i]] = values[i + 1];
+            }
+        }
+
+        internal RequestParameters(RequestParameters parameters)
+            : base(parameters)
+        {
+        }
+
+        public RequestParameters()
+            : base()
+        {
+        }
+
 		public override string ToString()
 		{
 			string values = "";
@@ -70,23 +92,6 @@ namespace Lastfm
 				line += key + "\t" + this[key] + "\t";
 			
 			return line;
-		}
-		
-		internal RequestParameters(string serialization)
-			:base()
-		{
-			string[] values = serialization.Split('\t');
-			
-			for(int i = 0; i < values.Length - 1; i++)
-			{
-				if ( (i%2) == 0 )
-					this[values[i]] = values[i+1];
-			}
-		}
-		
-		public RequestParameters()
-			:base()
-		{
-		}
+		}				
 	}
 }

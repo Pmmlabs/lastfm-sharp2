@@ -45,7 +45,7 @@ namespace Lastfm.Scrobbling
 		/// </param>
 		public void ReportNowplaying(NowplayingTrack track)
 		{
-            RequestParameters p = parameters;
+            RequestParameters p = new RequestParameters(parameters);
             p.Append(track.getParameters());
             p["method"] = "track.updateNowPlaying";
             p["api_sig"] = Utilities.MD5(p.ToStringForSig(ApiSecret));
@@ -73,7 +73,7 @@ namespace Lastfm.Scrobbling
 		/// </param>
 		public void Scrobble(Entry track)
 		{
-            RequestParameters p = parameters;
+            RequestParameters p = new RequestParameters(parameters);
             // Add parameters of track to base parameters
             p.Append(track.getParameters());
 			// This scrobbles the collection of parameters no matter what they belong to.
