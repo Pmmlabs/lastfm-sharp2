@@ -9,8 +9,6 @@ webservices including music scrobbling support. It was started as a C# incarnati
 
 To compile this lib you'll have to use MonoDevelop or Visual Studio.
 
-
-
 Features
 ----
  - Sophisticated public API.
@@ -19,6 +17,10 @@ Features
  - Proxy support.
  - Scrobbling.
  - Fully compatible with .Net Framework and Mono. 
+
+Examples
+----
+Some examples can be found in our [wiki](https://github.com/Pmmlabs/lastfm-sharp2/wiki/Examples)
 
 License
 ----
