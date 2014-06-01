@@ -22,6 +22,11 @@ Examples
 ----
 Some examples can be found in our [wiki](https://github.com/Pmmlabs/lastfm-sharp2/wiki/Examples)
 
+Download
+----
+You can download DLL assemblies on [Releases page](https://github.com/Pmmlabs/lastfm-sharp2/releases).
+Source files are available [here](https://github.com/Pmmlabs/lastfm-sharp2/archive/master.zip).
+
 License
 ----
 
