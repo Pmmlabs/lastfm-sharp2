@@ -82,6 +82,18 @@ namespace Lastfm.Services
 			if (DateTime.Now.Subtract(Request.lastCallTime.Value) > new TimeSpan(0, 0, 1))
 				Thread.Sleep(1000);
 		}
+        /// <summary>
+        /// Executing request in separate thread
+        /// </summary>
+        internal void executeThreaded()
+        {
+            Thread submittingThread = new Thread(new ThreadStart(this.executeThreadedHelper));
+            submittingThread.Start();
+        }
+        private void executeThreadedHelper()
+        {
+            execute();
+        }
 
 		public XmlDocument execute()
 		{

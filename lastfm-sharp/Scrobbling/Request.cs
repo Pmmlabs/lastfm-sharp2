@@ -21,6 +21,7 @@ using System.Net;
 using System.IO;
 using System.Text;
 using System.Xml;
+using System.Threading;
 
 namespace Lastfm.Scrobbling
 {
@@ -76,6 +77,18 @@ namespace Lastfm.Scrobbling
             }
 			
 			return output;
-		}	
-	}
+		}
+        /// <summary>
+        /// Executing request in separate thread
+        /// </summary>
+        internal void executeThreaded()
+        {
+            Thread submittingThread = new Thread(new ThreadStart(this.executeThreadedHelper));
+            submittingThread.Start();
+        }
+        private void executeThreadedHelper()
+        {
+            execute();
+        }
+    }
 }

@@ -57,7 +57,7 @@ namespace Lastfm.Scrobbling
 			// exception quietly.
             try
             {
-				request.execute();
+				request.executeThreaded();
             }
             catch (BadSessionException)
             {
@@ -99,7 +99,7 @@ namespace Lastfm.Scrobbling
 			// exception quietly.
 			try
 			{
-				request.execute();
+				request.executeThreaded();
 			} catch (BadSessionException) {
 				this.Scrobble(parameters);
 			}
